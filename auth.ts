@@ -1,9 +1,17 @@
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
 import type { NextAuthConfig } from "next-auth";
 import NextAuth from "next-auth";
 
 import google from "next-auth/providers/google";
 
+const prisma = PrismaClient();
+
 const config = {
+  adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: "jwt",
+  },
   providers: [google],
   callbacks: {
     authorized({ request, auth }) {

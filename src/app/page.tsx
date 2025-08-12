@@ -6,6 +6,7 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Link href="/client">Client Page</Link>
         <Link href="/server">Server Page</Link>
+        <Link href="/middleware">Middleware Page</Link>
       </main>
     </div>
   );
